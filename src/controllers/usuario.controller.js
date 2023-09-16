@@ -186,7 +186,7 @@ export async function getUsers(req, res) {
        let actual=new Date();
        let minutos=actual.getTime()+(1000*600);
        let expira=new Date(minutos);
-       expira=expira.toLocaleString("es-ES",{day:"numeric",month:"2-digit", year:"2-digit",hour:'numeric',minute:'numeric',second:'numeric'});
+       expira=expira.toLocaleString("es-ES",{day:"numeric",month:"2-digit", year:"2-digit",hour:'2-digit',minute:'2-digit',second:'2-digit'});
        res.json({ token, Expira: expira});
        });
       }

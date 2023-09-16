@@ -1,0 +1,104 @@
+Instalación:
+npm i dotenv
+npm i express
+npm i jsonwebtoken
+npm i morgan
+npm i pg
+npm i pg-hstore
+npm i pino
+npm i pino-pretty
+npm i sequelize
+
+Ejecución: 
+nodemon src/index.js or npm run dv
+
+Base de datos: 
+CREATE DATABASE bdproymod;
+
+datos para conexion a la base de datos:
+user: "postgres",
+database: "bdcontrol",
+password: "postgres",
+
+Usuarios CRUD:
+http://localhost:3000/api/usuarios 
+con las siguientes funciones importantes:   
+getUsers:
+- Retorna todos los usuarios de la tabla usuarios
+createUser:
+Permite crear al usuario
+- Los campos requeridos son los siguientes: 
+- nombre, correo, password,estado;
+- Retorna el usuario creado.
+getUser: 
+- Retorna un usuario especifico de acuerdo a su id
+updateUser:
+- Edita la información del usuario, donde es importante que tenga el id
+- Es requerido los siguientes campos: 
+- nombre, correo, password, estado
+deleteUser:
+-borra el usuario de acuerdo a su id
+api/usuarios/id/categorias
+getUserCategorys
+-Permite obtener todas las categorias registradas de un usuario especifico 
+usuarios/categorias/all
+getUsersCategorys
+-Permite obtener todas las categorias agrupado por usuario
+usuarios/id/productos
+getUserProducts
+-Permite obtener todos los productos registrados de un usuarip especifico. 
+usuarios/productos/all
+getUsersProducts
+-Permite obtener todas las productos registrados agrupado por usuario
+api/usuarios/login
+-Permite obtener el token , es requerido el correo electronico y la contraseña,
+-Devuelve el token con su fecha de expiración. 
+
+Categorias CRUD::
+http://localhost:3000/api/categorias
+con las siguientes funciones importantes:
+getCategorys
+- Retorna todas las categorias registradas
+createCategory:
+Permite crear una categoria
+- Los campos requeridos son los siguientes: 
+- usuario_id,nombre
+- Retorna la categoria creada.
+getCategory
+- Retorna una categoria especifica de acuerdo a su id
+updateCategory
+- Edita la información de la categoria, donde es importante que tenga el id
+- Es requerido los siguientes campos: 
+- usuario_id,nombre
+deleteCategory
+-borra la categoria de acuerdo a su id
+/categorias/id/productos
+getCategoryProducts
+-Permite obtener todos los productos registrados de una categoria especifica.
+/categorias/productos/all
+getCategorysProducts
+--Permite obtener todas las productos registrados agrupado por categoria.
+El Middlewar de control es: verifytoken
+-Permite realizar el CRUD correspondiente con el token devuelto
+
+
+Productos CRUD::
+http://localhost:3000/api/productos
+con las siguientes funciones importantes:
+getProducts
+- Retorna todas los productos registrados
+createProduct:
+Permite crear un productos
+- Los campos requeridos son los siguientes: 
+- usuario_id, categoria_id, nombre, precio_unitario, estado
+- Retorna el producto creado.
+getProduct
+- Retorna el producto especifico de acuerdo a su id
+updateProduct
+- Edita la información del producto, donde es importante que tenga el id
+- Es requerido los siguientes campos: 
+- usuario_id, categoria_id, nombre, precio_unitario, estado
+deleteProduct
+-borra el producto de acuerdo a su id
+El Middlewar de control es: verifytoken
+-Permite realizar el CRUD correspondiente con el token devuelto
